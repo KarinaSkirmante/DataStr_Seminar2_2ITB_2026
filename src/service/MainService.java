@@ -30,6 +30,9 @@ public class MainService {
 			symbols.remove(2);//A Q C Z
 			symbols.print();//A Q C Z
 			
+			System.out.println("-----IEGŪŠANA PĒC POZĪCIJAS------");
+			System.out.println(symbols.get(1));//Q
+			System.out.println(symbols.get(3));//Z
 			
 		}
 		catch (Exception e) {

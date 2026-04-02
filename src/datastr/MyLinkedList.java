@@ -186,7 +186,38 @@ public class MyLinkedList<Ttype> {
 		}
 	}
 	
-	//get by position
+	public Ttype get(int position) throws Exception{
+		if(isEmpty()) {
+			throw new Exception("Saraksts ir tukšs, līdz ar to nevaram veikt elementa atgriešanu");
+		}
+		
+		if(position < 0) {
+			throw new Exception("Pozicija nevar būt negatīva");
+		}
+		
+		if(position >= howManyElements) {
+			throw new Exception("Pozīcija nevar būt lielāka vai vienāda par elementu skaitu");
+		}
+		
+		MyNode<Ttype> currentNode = null;
+		
+		if(position < howManyElements/2) {
+			currentNode = firstNode;
+			for(int i = 1; i <= position; i++) {
+				currentNode = currentNode.getNextNode();
+			}
+		}
+		else
+		{
+			currentNode = lastNode;
+			for(int i = howManyElements; i > position+1; i--) {
+				currentNode = currentNode.getPreviousNode();
+			}
+		}
+		
+		return currentNode.getElement();
+		
+	}
 	//search
 	//makeEmpty
 	
