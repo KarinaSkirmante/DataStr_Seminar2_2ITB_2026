@@ -19,6 +19,8 @@ public class MainService {
 			symbols.print();//X A B C Z
 			symbols.add('U', 5);//X A B C Z U
 			symbols.print();//X A B C Z U
+			symbols.add('Q', 2);//X A Q B C Z U
+			symbols.print();//X A Q B C Z U
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());

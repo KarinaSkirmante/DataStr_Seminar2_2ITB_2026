@@ -101,6 +101,26 @@ public class MyLinkedList<Ttype> {
 		//TODO ja vēlas pievienot pa vidu
 		else
 		{
+			MyNode<Ttype> newNode = new MyNode<Ttype>(element);
+			
+			//veicam lecienu līdz pozīcijai -1
+			MyNode<Ttype> currentNode = firstNode;//TODO noskaidrot, no kuras puses veigt lēkšanu 
+			
+			for(int i = 1; i <= position-1; i++) {
+				currentNode = currentNode.getNextNode();
+			}
+			
+			MyNode<Ttype> leftNode = currentNode;
+			MyNode<Ttype> rightNode = leftNode.getNextNode();
+			
+			leftNode.setNextNode(newNode);
+			newNode.setPreviousNode(leftNode);
+			
+			rightNode.setPreviousNode(newNode);
+			newNode.setNextNode(rightNode);
+			
+			howManyElements++;
+			
 			
 		}
 	}
