@@ -1,10 +1,15 @@
 package service;
 
+import java.util.Arrays;
+
 import datastr.MyLinkedList;
+import model.Student;
 
 public class MainService {
 
 	public static void main(String[] args) {
+		
+		System.out.println("------DARBS AR SIMBOLIEM------");
 		MyLinkedList<Character> symbols = new MyLinkedList<Character>();
 		
 		try
@@ -48,6 +53,35 @@ public class MainService {
 		catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
+		
+		
+		System.out.println("------DARBS AR STUDENTIEM----------");
+		MyLinkedList<Student> allStudents = new MyLinkedList<Student>();
+		Student s1 = new Student("Janis", "Berzins", "121212-67890");
+		Student s2 = new Student("Baiba", "Jauka", "122323-23456");
+		Student s3 = new Student("Liga", "Nejauka", "345675-34567");
+		
+		try
+		{
+			allStudents.add(s1);//Jānis
+			allStudents.add(s2);//Jānis Baiba
+			allStudents.add(s3,0);//Līga Jānis Baiba
+			allStudents.print();
+			System.out.println(allStudents.get(1));//Jānis
+			System.out.println(allStudents.search(s3));//0 <-kura indeksā galbājās Līga
+			
+			allStudents.print();//Liga Baiba Janis
+			allStudents.remove(2);//izdzēšu Baibu
+			allStudents.print();//Liga Janis
+			allStudents.makeEmpty();
+			allStudents.add(new Student("Karina", "Skirmante", "121234-12212"));
+			allStudents.print();//Karina
+			
+		}
+		catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
 	}
 
 }
