@@ -34,6 +34,12 @@ public class MainService {
 			System.out.println(symbols.get(1));//Q
 			System.out.println(symbols.get(3));//Z
 			
+			System.out.println("-----MEKLĒŠANA------");
+			System.out.println(symbols.search('A'));//0
+			symbols.add('Q');//A Q C Z Q
+			symbols.add('Q');//A Q C Z Q Q
+			System.out.println(symbols.search('Q'));//1 4 5
+			
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());

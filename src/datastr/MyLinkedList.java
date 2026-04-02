@@ -1,5 +1,7 @@
 package datastr;
 
+import java.util.ArrayList;
+
 public class MyLinkedList<Ttype> {
 	private MyNode<Ttype> firstNode = null;
 	private MyNode<Ttype> lastNode = null;
@@ -218,7 +220,37 @@ public class MyLinkedList<Ttype> {
 		return currentNode.getElement();
 		
 	}
-	//search
+	
+	public ArrayList<Integer> search(Ttype element)throws Exception{
+		if(isEmpty()) {
+			throw new Exception("Saraksts ir tukšs, līdz ar to nevaram veikt elementa meklēšanu");
+		}
+		if(element == null) {
+			throw new Exception("Padotais elements nav norādīts");
+		}
+		
+		ArrayList<Integer> foundPositions = new ArrayList<Integer>();
+		int tempPosition = 0;
+		MyNode<Ttype> currentNode = firstNode;
+		
+		while(currentNode != null) {
+			if(currentNode.getElement().equals(element)) {
+				foundPositions.add(tempPosition);
+			}
+			tempPosition++;
+			
+			currentNode = currentNode.getNextNode();
+		}
+		
+		
+		if(foundPositions.isEmpty()) {
+			throw new Exception("Meklētais elements nav atrasts sarakstā");
+		}
+		
+		return foundPositions;
+		
+	}
+	
 	//makeEmpty
 	
 	
