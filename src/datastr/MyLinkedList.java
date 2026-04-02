@@ -125,8 +125,50 @@ public class MyLinkedList<Ttype> {
 		}
 	}
 
+	//TODO
+	public void remove(int position) throws Exception
+	{
+		if(isEmpty()) {
+			throw new Exception("Saraksts ir tukšs, līdz ar to nevaram veikt dzēšanu");
+		}
+		
+		if(position < 0) {
+			throw new Exception("Pozicija nevar būt negatīva");
+		}
+		
+		if(position >= howManyElements) {
+			throw new Exception("Pozīcija nevar būt lielāka vai vienāda par elementu skaitu");
+		}
 	
-	
+		if(position == 0) {
+			firstNode = firstNode.getNextNode();
+			firstNode.setPreviousNode(null);
+			
+			howManyElements--;
+		}
+		else if(position == howManyElements-1) {
+			lastNode = lastNode.getPreviousNode();
+			lastNode.setNextNode(null);
+			
+			howManyElements--;
+		}
+		else
+		{
+			MyNode<Ttype> currentNode = firstNode;
+			
+			for(int i = 1; i <= position; i++) {
+				currentNode = currentNode.getNextNode();
+			}
+			
+			MyNode<Ttype> leftNode = currentNode.getPreviousNode();
+			MyNode<Ttype> rightNode = currentNode.getNextNode();
+			
+			leftNode.setNextNode(rightNode);
+			rightNode.setPreviousNode(leftNode);
+			
+			howManyElements--;
+		}
+	}
 	
 	public void print() throws Exception{
 		if(isEmpty()) {

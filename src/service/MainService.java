@@ -9,6 +9,7 @@ public class MainService {
 		
 		try
 		{
+			System.out.println("-----PIEVIENOŠANA------");
 			symbols.add('A');//A
 			symbols.add('B');//B
 			symbols.add('C');//C
@@ -21,6 +22,15 @@ public class MainService {
 			symbols.print();//X A B C Z U
 			symbols.add('Q', 2);//X A Q B C Z U
 			symbols.print();//X A Q B C Z U
+			System.out.println("-----DZĒŠANA------");
+			symbols.remove(0);//A Q B C Z U
+			symbols.print();//A Q B C Z U
+			symbols.remove(5);//A Q B C Z
+			symbols.print();//A Q B C Z
+			symbols.remove(2);//A Q C Z
+			symbols.print();//A Q C Z
+			
+			
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
