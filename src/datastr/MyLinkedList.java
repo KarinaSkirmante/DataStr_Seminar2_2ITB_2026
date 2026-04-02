@@ -103,12 +103,27 @@ public class MyLinkedList<Ttype> {
 		{
 			MyNode<Ttype> newNode = new MyNode<Ttype>(element);
 			
-			//veicam lecienu līdz pozīcijai -1
-			MyNode<Ttype> currentNode = firstNode;//TODO noskaidrot, no kuras puses veigt lēkšanu 
+			//pozīcija ir tuvak pirmajam blokam un veicam lēkšanu 
+			//no pirmā bloka uz priekšu
+			MyNode<Ttype> currentNode = null;
 			
-			for(int i = 1; i <= position-1; i++) {
-				currentNode = currentNode.getNextNode();
+			if(position < howManyElements/2) {
+				currentNode = firstNode;
+				for(int i = 1; i <= position-1; i++) {
+					currentNode = currentNode.getNextNode();
+				}
 			}
+			//pozīcija ir tuvak pēdējam blokam un veicam lēkšanu 
+			//no pēdejā bloka uz atpakaļ
+			else
+			{
+				currentNode = lastNode;
+				for(int i = howManyElements; i > position; i--) {
+					currentNode = currentNode.getPreviousNode();
+				}
+			}
+			
+			
 			
 			MyNode<Ttype> leftNode = currentNode;
 			MyNode<Ttype> rightNode = leftNode.getNextNode();
@@ -125,7 +140,7 @@ public class MyLinkedList<Ttype> {
 		}
 	}
 
-	//TODO
+
 	public void remove(int position) throws Exception
 	{
 		if(isEmpty()) {
@@ -154,6 +169,7 @@ public class MyLinkedList<Ttype> {
 		}
 		else
 		{
+			//TODO līdzīgi kā pievienošanai, uztaisīt arī lēkšanu no abām pusem
 			MyNode<Ttype> currentNode = firstNode;
 			
 			for(int i = 1; i <= position; i++) {
@@ -169,6 +185,12 @@ public class MyLinkedList<Ttype> {
 			howManyElements--;
 		}
 	}
+	
+	//get by position
+	//search
+	//makeEmpty
+	
+	
 	
 	public void print() throws Exception{
 		if(isEmpty()) {
