@@ -40,6 +40,10 @@ public class MainService {
 			symbols.add('Q');//A Q C Z Q Q
 			System.out.println(symbols.search('Q'));//1 4 5
 			
+			System.out.println("-----ATBRIVOT SARAKSTU------");
+			symbols.makeEmpty();
+			symbols.add('E');//E
+			symbols.print();//E
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());

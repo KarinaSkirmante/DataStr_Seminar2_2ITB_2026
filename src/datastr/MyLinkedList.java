@@ -251,10 +251,6 @@ public class MyLinkedList<Ttype> {
 		
 	}
 	
-	//makeEmpty
-	
-	
-	
 	public void print() throws Exception{
 		if(isEmpty()) {
 			throw new Exception(
@@ -270,7 +266,14 @@ public class MyLinkedList<Ttype> {
 		
 		System.out.println();
 		
-		
 	}
+	
+	public void makeEmpty() {
+		firstNode = null;
+		lastNode = null;
+		howManyElements = 0;
+		System.gc();
+	}
+	
 
 }
